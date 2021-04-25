@@ -1,6 +1,6 @@
-package ru.job4j;
+package ru.job4j.inheritance;
 
-public class Programmer {
+public class Programmer extends Engineer {
 
     private String code = "0110100101010110101";
 
