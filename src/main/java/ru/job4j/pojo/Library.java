@@ -12,8 +12,7 @@ public class Library {
         books[1] = secondBook;
         books[2] = thirdBook;
         books[3] = forthBook;
-        for (int index = 0; index < books.length; index++) {
-            Book book = books[index];
+        for (Book book : books) {
             System.out.println(book);
         }
 
