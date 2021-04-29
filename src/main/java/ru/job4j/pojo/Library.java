@@ -21,7 +21,7 @@ public class Library {
         books[3] = temp;
 
         for (Book book : books) {
-            if (book.getName().equals("Clean Code")) {
+            if (book.getName() != null && book.getName().equals("Clean Code")) {
                 System.out.println(book);
             }
         }
