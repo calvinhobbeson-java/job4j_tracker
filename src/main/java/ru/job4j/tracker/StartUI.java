@@ -16,15 +16,13 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
-                } else
-                    if (select == 1) {
+                } else if (select == 1) {
                         System.out.println("=== Show all items ====");
                         Item[] result = tracker.findAll();
                         for (int i = 0; i < result.length; i++) {
                             System.out.println(result[i]);
                         }
-                    } else
-                        if (select == 2) {
+                    } else if (select == 2) {
                             System.out.println("=== Edit item ====");
                             System.out.print("Enter id: ");
                             int id = Integer.valueOf(scanner.nextLine());
@@ -36,8 +34,7 @@ public class StartUI {
                             } else {
                                 System.out.println("Operation was not successfull");
                             }
-                        } else
-                            if (select == 3) {
+                        } else if (select == 3) {
                                 System.out.println("=== Delete item ====");
                                 System.out.print("Enter id: ");
                                 int id = Integer.valueOf(scanner.nextLine());
@@ -46,8 +43,7 @@ public class StartUI {
                                 } else {
                                     System.out.println("Заявка не была удалена");
                                 }
-                            } else
-                                if (select == 4) {
+                            } else if (select == 4) {
                                     System.out.println("=== Find item by Id ====");
                                     System.out.print("Enter id: ");
                                     int id = Integer.valueOf(scanner.nextLine());
@@ -57,8 +53,7 @@ public class StartUI {
                                     } else {
                                         System.out.println("Заявка с таким id не найдена");
                                     }
-                                } else
-                                    if (select == 5) {
+                                } else if (select == 5) {
                                         System.out.println("=== Find item by name ====");
                                         System.out.print("Enter name: ");
                                         String key = scanner.nextLine();
