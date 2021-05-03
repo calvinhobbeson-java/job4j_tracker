@@ -19,8 +19,8 @@ public class StartUI {
                 } else if (select == 1) {
                         System.out.println("=== Show all items ====");
                         Item[] result = tracker.findAll();
-                for (Item item : result) {
-                    System.out.println(item);
+                        for (Item item : result) {
+                            System.out.println(item);
                 }
                     } else if (select == 2) {
                             System.out.println("=== Edit item ====");
