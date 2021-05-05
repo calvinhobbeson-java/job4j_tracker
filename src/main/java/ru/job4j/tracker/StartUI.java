@@ -11,9 +11,7 @@ public class StartUI {
 
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
-        System.out.print("Enter id: ");
-        int id = input.askInt("Select: ");
-        System.out.print("Enter name: ");
+        int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
@@ -37,8 +35,7 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
-        System.out.print("Enter id: ");
-        int id = input.askInt("Select: ");
+        int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена");
         } else {
@@ -48,8 +45,7 @@ public class StartUI {
 
     public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Find item by Id ====");
-        System.out.print("Enter id: ");
-        int id = input.askInt("Select: ");
+        int id = input.askInt("Enter id: ");
         Item result = tracker.findById(id);
         if (result != null) {
             System.out.println(result);
@@ -60,7 +56,6 @@ public class StartUI {
 
     public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Find item by name ====");
-        System.out.print("Enter name: ");
         String key = input.askStr("Enter name: ");
         Item[] result = tracker.findByName(key);
         if (result.length > 0) {
