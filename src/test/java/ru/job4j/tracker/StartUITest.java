@@ -29,7 +29,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", "2", String.valueOf(item.getId()), replacedName});
+                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"});
         UserAction[] actions = {
                 new ReplaceAction(out),
                 new Exit()
@@ -44,7 +44,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-                new String[] {"0", "3", String.valueOf(item.getId())});
+                new String[] {"0", String.valueOf(item.getId()), "1"});
         UserAction[] actions = {
                 new DeleteAction(out),
                 new Exit()
@@ -57,7 +57,7 @@ public class StartUITest {
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "6"}
+                new String[] {"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -81,7 +81,7 @@ public class StartUITest {
                 new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Showing all items" + System.lineSeparator() + "Exit" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Showing all items" + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Item name"));
         Input in = new StubInput(
-                new String[] {"0", "5", String.valueOf(item.getId())});
+                new String[] {"0", String.valueOf(item.getId()), "1"});
         UserAction[] actions = {
                 new FindByIdAction(out),
                 new Exit()
