@@ -15,14 +15,14 @@ public class ReplaceAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Edit item ====");
+        out.println("=== Edit item ====");
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Successfull operation");
+            out.println("Successfull operation");
         } else {
-            System.out.println("Operation was not successfull");
+            out.println("Operation was not successfull");
         }
         return true;
     }

@@ -15,14 +15,14 @@ public class ShowAllAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Show all items ====");
+        out.println("=== Show all items ====");
         Item[] result = tracker.findAll();
         if (result.length > 0) {
             for (Item item : result) {
-                System.out.println(item);
+                out.println(item);
             }
         } else {
-            System.out.println("Заявки с таким именем не найдены");
+            out.println("Заявки с таким именем не найдены");
         }
         return true;
     }
