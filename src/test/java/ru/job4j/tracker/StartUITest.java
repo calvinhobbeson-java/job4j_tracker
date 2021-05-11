@@ -107,7 +107,7 @@ public class StartUITest {
                 + "0. Find item by id" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
                 + "=== Find item by Id ====" + System.lineSeparator()
-                + tracker.findById(item.getId()) + System.lineSeparator()
+                + item + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find item by id" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()));
@@ -129,7 +129,7 @@ public class StartUITest {
                 + "0. Find item by name" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
                 + "=== Find item by name ====" + System.lineSeparator()
-                + tracker.findById(item.getId()) + System.lineSeparator()
+                + item + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find item by name" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()));
