@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -17,7 +16,9 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
-        assertThat(out.toString(), is("Please enter validate data again."));
+        assertThat(out.toString(), is(
+                "Please enter validate data again."
+                + System.lineSeparator()));
     }
 
     @Test
