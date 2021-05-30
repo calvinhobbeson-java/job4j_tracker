@@ -14,14 +14,13 @@ public class StartUITest {
     public void whenCreateItem() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                //new String[] {"0", "Item name", "1"});
-                new List<String>() {"0", "Item name", "1"};
+                Arrays.asList("0", "Item name", "1"));
                 Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(out),
                 new Exit()};
         new StartUI(out).init(in, tracker, Arrays.asList(actions));
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
@@ -31,7 +30,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"});
+                Arrays.asList("0", String.valueOf(item.getId()), replacedName, "1"));
         UserAction[] actions = {
                 new ReplaceAction(out),
                 new Exit()};
@@ -45,7 +44,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"});
+                Arrays.asList("0", String.valueOf(item.getId()), "1"));
         UserAction[] actions = {
                 new DeleteAction(out),
                 new Exit()};
@@ -57,7 +56,7 @@ public class StartUITest {
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"});
+                Arrays.asList("0"));
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new Exit()};
@@ -71,7 +70,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Input in = new StubInput(
-                new String[] {"0", "1"});
+                Arrays.asList("0", "1"));
         UserAction[] actions = {
                 new ShowAllAction(out),
                 new Exit()};
@@ -92,7 +91,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Item name"));
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"});
+                Arrays.asList("0", String.valueOf(item.getId()), "1"));
         UserAction[] actions = {
                 new FindByIdAction(out),
                 new Exit()};
@@ -113,7 +112,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Item name"));
         Input in = new StubInput(
-                new String[] {"0", item.getName(), "1"});
+                Arrays.asList("0", item.getName(), "1"));
         UserAction[] actions = {
                 new FindByNameAction(out),
                 new Exit()};
@@ -132,8 +131,7 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new List<String> {"10", "0"}
-        );
+                Arrays.asList("10", "0"));
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
                 new Exit()
