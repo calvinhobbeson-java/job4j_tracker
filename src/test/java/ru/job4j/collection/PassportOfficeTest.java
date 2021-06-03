@@ -20,7 +20,6 @@ public class PassportOfficeTest {
 
     @Test
     public void whenAddFalse() {
-        Map<String, Citizen> citizens = new HashMap<>();
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         Citizen citizenTwo = new Citizen("2f44a", "Petr Ar");
         PassportOffice office = new PassportOffice();
