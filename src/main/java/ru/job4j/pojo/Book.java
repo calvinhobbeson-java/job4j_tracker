@@ -22,12 +22,18 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Book book = (Book) o;
 
-        if (pages != book.pages) return false;
+        if (pages != book.pages) {
+            return false;
+        }
         return name != null ? name.equals(book.name) : book.name == null;
     }
 
