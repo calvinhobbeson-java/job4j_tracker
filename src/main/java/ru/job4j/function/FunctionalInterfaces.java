@@ -19,28 +19,19 @@ public class FunctionalInterfaces {
         biCon.accept(6, "six");
         biCon.accept(7, "seven");
 
-        BiPredicate<Integer, String> biPred = (t, u) ->  t % 2 == 0 || map.get(t).length() == 4;
+        BiPredicate<Integer, String> biPred = (t, u) ->  t % 2 == 0 || u.length() == 4;
         for (Integer i : map.keySet()) {
             if (biPred.test(i, map.get(i))) {
                 System.out.println("key: " + i + " value: " + map.get(i));
             }
         }
         Supplier<List<String>> sup = () -> new ArrayList<>(map.values());
-        sup.get();
+        List<String> strings = new ArrayList<>(sup.get());
 
-        Consumer<String> con = (i) -> for(int index = 0; index < sup.size(); index++) {
-            System.out.println(sup.get(index));
-        }
-        con.accept();
-
-        Function<String, String> func = ...;
+        Consumer<String> con = (i) -> System.out.println(i);
+        Function<String, String> func = (s) -> s.toUpperCase();
         for (String s : strings) {
-            /*
-                Заменить вывод строк на применение Consumer
-                Заменить преобразование строк к строкам в верхнем регистре с помощью Function
-                Необходимое объявлено выше, требуется их реализовать.
-            */
-            System.out.println(s.toUpperCase());
+            System.out.println(s);
         }
     }
 }
