@@ -1,7 +1,5 @@
 package ru.job4j.function;
 
-import ru.job4j.lambda.Attachment;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
