@@ -2,13 +2,17 @@ package ru.job4j.function;
 
 import ru.job4j.lambda.Attachment;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class LambdaUsage {
+
     public static void main(String[] args) {
-        Comparator<Attachment> comparator = (left, right) -> {
-            System.out.println("compare - " + left.getSize() + " : " + right.getSize());
-            return left.getSize() - right.getSize();
+        String[] strings = {"Alexander", "Vasilij"};
+        Comparator<String> comparator = (left, right) -> {
+            System.out.println("compare - " + left.length() + " : " + right.length());
+            return Integer.compare(right.length(), left.length());
         };
+        Arrays.sort(strings, comparator);
     }
 }
