@@ -48,14 +48,11 @@ public class BankService {
      * @return user
      */
     public User findByPassport(String passport) {
-        User result = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-                break;
-            }
-        }
-        return result;
+        return users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -66,19 +63,16 @@ public class BankService {
      * @return account of a user
      */
     public Account findByRequisite(String passport, String requisite) {
-        Account result = null;
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> accs = users.get(user);
-            for (Account account : accs) {
-                if (account.getRequisite().equals(requisite)) {
-                    result = account;
-                    break;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(user1 -> user1.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
-            return result;
-        }
+        return null;
+    }
 
     /**
      * Methoc transfers money from one account to another
