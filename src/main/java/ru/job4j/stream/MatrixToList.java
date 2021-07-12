@@ -1,3 +1,4 @@
+
 package ru.job4j.stream;
 
 import java.util.Arrays;
@@ -7,6 +8,6 @@ import java.util.stream.Stream;
 
 public class MatrixToList {
     public List<Integer> collect(Integer[][] numbers) {
-        return Stream.of(numbers).flatMap(e -> e.stream()).collect(Collectors.toList());
+        return Stream.of(numbers).flatMap(Arrays::stream).collect(Collectors.toList());
     }
 }
