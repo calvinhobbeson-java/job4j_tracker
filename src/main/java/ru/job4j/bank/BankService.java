@@ -25,7 +25,7 @@ public class BankService {
 
     /**
      * Method finds a user by passport as a first step, then checks if user exist
-     * Then method adds account to a ArrayList, if there is no such account
+     * Then method adds account to ArrayList, if there is no such account
      * @param passport unique parameter of any user
      * @param account is account than any user can have
      */
