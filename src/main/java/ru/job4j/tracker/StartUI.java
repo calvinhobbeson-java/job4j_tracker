@@ -29,4 +29,26 @@ public class StartUI {
             out.println(index + ". " + actions.get(index).name());
         }
     }
+
+    public static void main(String[] args) {
+        Output output = new ConsoleOutput();
+        Input input = new ValidateInput(output,
+                new ConsoleInput()
+        );
+        try (SqlTracker tracker = new SqlTracker()) {
+            tracker.init();
+            List<UserAction> actions = List.of(
+                    new CreateAction(output),
+                    new ReplaceAction(output),
+                    new DeleteAction(output),
+                    new ShowAllAction(output),
+                    new FindByIdAction(output),
+                    new FindByNameAction(output),
+                    new Exit()
+            );
+            new StartUI(output).init(input, tracker, actions);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

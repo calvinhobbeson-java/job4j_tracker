@@ -33,18 +33,11 @@ public class SqlTracker implements Store, AutoCloseable {
         }
     }
 
-    public Item fill(ResultSet resultSet) {
-        Item item = null;
-        try {
-            item = new Item(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getTimestamp("created").toLocalDateTime()
-                );
-        } catch (SQLException throwables) {
-                throwables.printStackTrace();
-        }
-        return item;
+    public Item fill(ResultSet resultSet) throws SQLException {
+       return new Item(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                resultSet.getTimestamp("created").toLocalDateTime());
     }
 
     @Override
@@ -73,7 +66,7 @@ public class SqlTracker implements Store, AutoCloseable {
                 "update items set name = ?, created = ? where id = ?")) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
-            statement.setInt(3, item.getId());
+            statement.setInt(3, id);
             result = statement.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
