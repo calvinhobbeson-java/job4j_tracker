@@ -32,11 +32,8 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput(output,
-                new ConsoleInput()
-        );
-        try (SqlTracker tracker = new SqlTracker()) {
-            tracker.init();
+        Input input = new ValidateInput(output, new ConsoleInput());
+        try (MemTracker store = new MemTracker()) {
             List<UserAction> actions = List.of(
                     new CreateAction(output),
                     new ReplaceAction(output),
@@ -44,11 +41,12 @@ public class StartUI {
                     new ShowAllAction(output),
                     new FindByIdAction(output),
                     new FindByNameAction(output),
-                    new Exit()
-            );
-            new StartUI(output).init(input, tracker, actions);
+                    new CreateManyItems(output),
+                    new DeleteManyAction(output),
+                    new Exit());
+            new StartUI(output).init(input, store, actions);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException(e);
         }
     }
 }
