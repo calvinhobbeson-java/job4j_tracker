@@ -22,10 +22,10 @@ public class FindByNameAction implements UserAction {
         List<Item> result = memTracker.findByName(key);
         if (result.size() > 0) {
             for (Item item : result) {
-                out.println(item);
+                out.println(result);
             }
         } else {
-            out.println("Заявки с таким именем не найдены");
+            out.println("Operation was not successfull");
         }
         return true;
     }

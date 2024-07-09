@@ -21,7 +21,7 @@ public class FindByIdAction implements UserAction {
         if (result != null) {
             out.println(result);
         } else {
-            out.println("Заявка с таким id не найдена");
+            out.println("Operation was not successfull");
         }
         return true;
     }
