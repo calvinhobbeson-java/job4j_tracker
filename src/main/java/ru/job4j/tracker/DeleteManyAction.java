@@ -9,7 +9,6 @@ public class DeleteManyAction implements UserAction {
         this.out = out;
     }
 
-
     public String name() {
         return "Delete all items";
     }
