@@ -13,6 +13,16 @@ public class MemTracker implements Store, AutoCloseable {
         return item;
     }
 
+    @Override
+    public boolean replace(Integer id, Item item) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(Integer id) {
+        return false;
+    }
+
     public Item findById(int id) {
         int index = indexOf(id);
         return index != -1 ? items.get(index) : null;
@@ -30,6 +40,11 @@ public class MemTracker implements Store, AutoCloseable {
             }
         }
         return result;
+    }
+
+    @Override
+    public Item findById(Integer id) {
+        return null;
     }
 
     private int indexOf(int id) {

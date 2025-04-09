@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -15,7 +16,9 @@ public class HQLUsage {
         try (SessionFactory sf = new MetadataSources(registry)
                 .buildMetadata().buildSessionFactory()) {
             Session session = sf.openSession();
-            /* working with session */
+            Query<Item> query = session.createQuery(
+                    "from Item as i where i.id = 3", Item.class);
+            System.out.println(query.uniqueResult());
             session.close();
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
